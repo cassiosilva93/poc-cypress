@@ -35,6 +35,22 @@
     debug "^3.1.0"
     lodash.once "^4.1.1"
 
+"@shelex/allure-js-commons-browser@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@shelex/allure-js-commons-browser/-/allure-js-commons-browser-1.2.0.tgz#16e8752e100860a3ecd5bb2581113f131e27cf39"
+  integrity sha512-BlRjExO+Y/Y0OMwEUhyCinf6rkcqTVPeAC7W5QENTXrvhu6CKXqUlhSTM+GUu4tOSlNSwdyvSI+fiMjCV1TI5g==
+  dependencies:
+    uuid "8.3.0"
+
+"@shelex/cypress-allure-plugin@^2.14.0":
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/@shelex/cypress-allure-plugin/-/cypress-allure-plugin-2.14.0.tgz#64a0b0c2fd0e471cc7fcc3ce43a00359e98039d1"
+  integrity sha512-dZHt1l2+e42JUUIkjeRzkTm+18ociBr0GLwrBXlUVang99OZMVYVrWaR0+1pidqvvzFkf/djQZq/msJ6uoMFJw==
+  dependencies:
+    "@shelex/allure-js-commons-browser" "1.2.0"
+    crypto-js "4.1.1"
+    uuid "8.3.2"
+
 "@types/node@*":
   version "16.9.4"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.9.4.tgz#a12f0ee7847cf17a97f6fdf1093cb7a9af23cca4"
@@ -301,6 +317,11 @@ cross-spawn@^7.0.0:
     path-key "^3.1.0"
     shebang-command "^2.0.0"
     which "^2.0.1"
+
+crypto-js@4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.1.1.tgz#9e485bcf03521041bd85844786b83fb7619736cf"
+  integrity sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==
 
 cypress-xpath@^1.6.2:
   version "1.6.2"
@@ -1104,7 +1125,12 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
-uuid@^8.3.2:
+uuid@8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.0.tgz#ab738085ca22dc9a8c92725e459b1d507df5d6ea"
+  integrity sha512-fX6Z5o4m6XsXBdli9g7DtWgAx+osMsRRZFKma1mIUsLCz6vRvv+pz5VNbyu9UEDzpMWulZfvpgb/cmDXVulYFQ==
+
+uuid@8.3.2, uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
