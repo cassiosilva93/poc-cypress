@@ -26,7 +26,7 @@
 
 Clonar o projeto:
 ```bash
-$ git clone https://github.com/cassiosilva93/poc-vxcadastro-cypress.git
+$ git clone https://github.com/cassiosilva93/poc-cypress.git
 ```
 Instalar as dependências:
 ```bash
