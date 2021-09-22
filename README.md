@@ -16,10 +16,6 @@
 
 ## Pré-requisitos para utilizar o Allure
 
-⚠️ Observação: Tutorial realizado para o sistema operacional **Windows**
-
-<br />
-
 ✅ Allure instalado na sua máquina ([tutorial](https://docs.qameta.io/allure/#_installing_a_commandline)) <br />
 ✅ Java instalado na sua máquina ([donwload](https://docs.qameta.io/allure/#_installing_a_commandline))<br />
 
