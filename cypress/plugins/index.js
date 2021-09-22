@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-const allureWriter = require('@shelex/cypress-allure-plugin')
+const allureWriter = require('@shelex/cypress-allure-plugin/writer')
 
 /**
  * @type {Cypress.PluginConfig}
