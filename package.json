@@ -23,11 +23,12 @@
     "url": "https://github.com/cassiosilva93/poc-cypress/issues"
   },
   "homepage": "https://github.com/cassiosilva93/poc-cypress#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.14.0",
+    "cpf-cnpj-validator": "^1.0.3",
     "cypress": "^8.4.1",
-    "cypress-xpath": "^1.6.2",
-    "@shelex/cypress-allure-plugin": "^2.14.0"
+    "cypress-plugin-tab": "^1.0.5",
+    "cypress-xpath": "^1.6.2"
   }
 }
