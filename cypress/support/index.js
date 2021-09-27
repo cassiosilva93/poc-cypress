@@ -1,8 +1,9 @@
 /// <reference types="@shelex/cypress-allure-plugin" />
 
-import './commands'
+import './commands';
 import 'cypress-xpath';
 import '@shelex/cypress-allure-plugin';
+import 'cypress-plugin-tab';
 
 Cypress.SelectorPlayground.defaults({
   selectorPriority: [
