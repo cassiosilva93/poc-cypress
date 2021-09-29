@@ -17,6 +17,6 @@ declare namespace Cypress {
      * @example 
      *    cy.loginWithStandardCredentials()
      */
-     loginWithStandardCredentials(): void
+    loginWithStandardCredentials(): void
   }
 }
