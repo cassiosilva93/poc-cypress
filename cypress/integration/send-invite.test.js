@@ -7,7 +7,6 @@ import { cnpj, cpf } from 'cpf-cnpj-validator';
 describe('Send Invite Page', () => {
   let email;
   let emailRepresentative;
-  let cpfDocument;
   let documentRepresentative;
 
   const optionsPerson = [
@@ -26,11 +25,12 @@ describe('Send Invite Page', () => {
     cy.get(locators.sidebar.sendInviteOption).click();
     email = generateFakeEmail();
     emailRepresentative = generateFakeEmail();
-    cpfDocument = cpf.generate();
     documentRepresentative = cnpj.generate();
   });
 
   it('should be able to send invite to individual person', () => {
+    const cpfDocument = cpf.generate();
+
     cy.get(locators.sendInvitePage.documentInput).type(cpfDocument);
     cy.get(locators.sendInvitePage.emailInput).type(email);
     cy.get(locators.sendInvitePage.sendInviteButton).click();
@@ -38,9 +38,12 @@ describe('Send Invite Page', () => {
       'have.text',
       'Seu convite foi enviado com sucesso!'
     );
+    cy.xpath(locators.sendInvitePage.closeModalButton()).click();
   });
 
   it('should be able to send invite to which will be filled in by a representative', () => {
+    const cpfDocument = cpf.generate();
+
     cy.get(locators.sendInvitePage.documentInput).type(cpfDocument);
     cy.get(locators.sendInvitePage.filledByRepresentative).click();
     cy.get(locators.sendInvitePage.emailInput).type(email);
@@ -51,6 +54,7 @@ describe('Send Invite Page', () => {
       'have.text',
       'Seu convite foi enviado com sucesso!'
     );
+    cy.xpath(locators.sendInvitePage.closeModalButton()).click();
     cy.xpath(locators.sendInvitePage.representativeIcon(cpfDocument)).should(
       'have.class',
       'text-c-green'
@@ -75,12 +79,15 @@ describe('Send Invite Page', () => {
   });
 
   it('should not be able to send invite without e-mail', () => {
+    const cpfDocument = cpf.generate();
+    
     cy.get(locators.sendInvitePage.documentInput).type(cpfDocument);
     cy.get(locators.sendInvitePage.sendInviteButton).click();
     cy.get(locators.sendInvitePage.inviteSuccessMessage).should(
       'have.text',
       'O E-mail inserido não é válido'
     );
+    cy.xpath(locators.sendInvitePage.closeModalButton()).click();
   });
 
   it('should not be able to send invite with invalid document', () => {
@@ -90,5 +97,7 @@ describe('Send Invite Page', () => {
     cy.get(locators.sendInvitePage.emailInput).type(email);
     cy.get(locators.sendInvitePage.sendInviteButton).click();
     cy.get(locators.sendInvitePage.inviteSuccessMessage).should('have.text', 'Documento inválido!');
+    cy.xpath(locators.sendInvitePage.closeModalButton()).click();
   });
+  
 });
