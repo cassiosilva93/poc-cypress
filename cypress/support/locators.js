@@ -17,31 +17,21 @@ const locators = {
     nextExpirationsOption: 'a[href="/admin/expiration"]',
     reasonsDessaprovalOption: 'a[href="/admin/return-reasons"]',
     suitabilityOption: 'a[href="/admin/suitability"]',
-    sidebarOptions: 'div[class="d-color ng-tns-c2-0 ng-star-inserted"]',
   },
   sendInvitePage: {
     newInviteArea: 'div[class="card"]',
-    documentInput: 'div[class="form-group form-default"] input[formcontrolname="socialNumber"]',
-    emailInput: ':nth-child(2) > .form-control',
+    documentInput: '.form-material > :nth-child(1) > .form-control',
+    documentRepresentativeInput: '.ng-pristine.ng-star-inserted > :nth-child(1) > .form-control',
+    emailInput: '.form-material > :nth-child(2) > .form-control',
+    emailRepresentativeInput: '.ng-invalid.ng-star-inserted > :nth-child(2) > .form-control',
     personTypeInput: 'select[formcontrolname="type"]',
     sendInviteButton: 'div[class="form-group form-default"] button',
+    personTypeInput: 'select[formcontrolname="type"]',
     inviteSuccessMessage: '#swal2-content',
+    filledByRepresentative: 'label[for="madeByRepresentative"]',
+    closeModalButton: () => '//button[contains(., "OK")]',
+    representativeIcon: (document) => `//td[contains(., "${document}")]/following-sibling::td[4]/div/i`
   },
-  cadastralAnalysisPage: {
-    newRegisterModal: {
-      documentInput: 'input[formcontrolname="document"]',
-      confirmButton: 'button[type=submit]',
-    },
-    newRegisterButton: () => '//button[contains(., "novo cadastro")]',
-  },
-  registerFields: {
-    fullnameInput: 'input[data-value="Nome Completo"]',
-    emailInput: 'input[formcontrolname="item"]',
-    transferedInvestorOptionsRadio: {
-      noOptionRadio: 'label[for="fullRegister-no"]',
-      yesOptionRadio: 'label[for="fullRegister-yes"]'
-    }
-  }
 };
 
 export default locators;

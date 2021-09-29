@@ -30,11 +30,3 @@ Cypress.Commands.add('loginWithStandardCredentials', () => {
 Cypress.Commands.add('selectProduct', () => {
   cy.visit('https://vxcadastrouat.vortx.com.br/');
 });
-
-Cypress.Commands.add('startRegister', (document) => {
-  cy.xpath(locators.cadastralAnalysisPage.newRegisterButton()).click();
-  cy.get(locators.cadastralAnalysisPage.newRegisterModal.documentInput).type(document).tab();
-  cy.get(locators.cadastralAnalysisPage.newRegisterModal.confirmButton, {timeout: 10000}).should('not.be.disabled')
-  cy.get(locators.cadastralAnalysisPage.newRegisterModal.confirmButton).click()
-});
-  
