@@ -18,5 +18,12 @@ declare namespace Cypress {
      *    cy.loginWithStandardCredentials()
      */
     loginWithStandardCredentials(): void
+
+    /**
+     * Realiza a redirecionamento de rota para o produto VxCadastro 
+     * @example 
+     *    cy.selectProduct()
+     */
+     selectProduct(): void
   }
 }
