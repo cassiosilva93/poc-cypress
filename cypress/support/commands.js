@@ -28,5 +28,8 @@ Cypress.Commands.add('loginWithStandardCredentials', () => {
 });
 
 Cypress.Commands.add('selectProduct', () => {
+  cy.intercept('GET', 'https://apis-stg.vortx.com.br/vxlogin/api/Products').as('products')
+  cy.wait('@products')
   cy.visit('https://vxcadastrouat.vortx.com.br/');
 });
+
