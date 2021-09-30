@@ -1,4 +1,12 @@
+import { cnpj } from 'cpf-cnpj-validator';
 import locators from './locators';
+
+const collections = [
+  'Invitation',
+  'Gestor',
+  'Person',
+  'Company'
+]
 
 Cypress.Commands.add('login', (document, password) => {
   cy.visit('/');
@@ -32,4 +40,15 @@ Cypress.Commands.add('selectProduct', () => {
   cy.wait('@products')
   cy.visit('https://vxcadastrouat.vortx.com.br/');
 });
+
+Cypress.Commands.add('deleteRegisterDatabase', (document) => {
+  const isCnpj = cnpj.isValid(document);
+
+  isCnpj 
+    ? cy.task(`companyRepository.deleteCompanyByDocument`, document)
+    : cy.task(`personRepository.deletePersonByDocument`, document)
+
+  cy.task(`invitationRepository.deleteInvitationByDocument`, document)
+  cy.task(`agentRepository.deleteAgentByDocument`, document)
+})
 
