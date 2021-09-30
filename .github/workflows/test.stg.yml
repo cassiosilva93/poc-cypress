@@ -19,7 +19,7 @@ on:
 jobs:
   test-stg:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, migration-runner-shared]
 
     strategy:
       matrix:
