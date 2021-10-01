@@ -1,15 +1,8 @@
 import { cnpj } from 'cpf-cnpj-validator';
 import locators from './locators';
 
-const collections = [
-  'Invitation',
-  'Gestor',
-  'Person',
-  'Company'
-]
-
 Cypress.Commands.add('login', (document, password) => {
-  cy.visit('/');
+  cy.visit(`${Cypress.config('baseUrlInterface')}`);
   cy.get(locators.loginPage.documentInput).type(document);
 
   [...password].forEach((number, index) => {
@@ -22,8 +15,7 @@ Cypress.Commands.add('login', (document, password) => {
 });
 
 Cypress.Commands.add('loginWithStandardCredentials', () => {
-  cy.visit('/');
-
+  cy.visit(`${Cypress.config('baseUrlInterface')}`);
   cy.fixture('credentials').then((credentials) => {
     cy.get(locators.loginPage.documentInput).type(credentials.valid.document);
 
@@ -36,9 +28,9 @@ Cypress.Commands.add('loginWithStandardCredentials', () => {
 });
 
 Cypress.Commands.add('selectProduct', () => {
-  cy.intercept('GET', 'https://apis-stg.vortx.com.br/vxlogin/api/Products').as('products')
+  cy.intercept('GET', `${Cypress.config('baseUrlApi')}/Products`).as('products')
   cy.wait('@products')
-  cy.visit('https://vxcadastrouat.vortx.com.br/');
+  cy.visit(`${Cypress.config('baseUrlVxCadastro')}`);
 });
 
 Cypress.Commands.add('deleteRegisterDatabase', (document) => {
