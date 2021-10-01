@@ -3,6 +3,16 @@ interface LogIn {
   password: string;
 }
 
+interface Keys {
+  id: string;
+  value: string;
+}
+
+interface KeyboardResponse {
+  id: string;
+  keys: Keys[]
+}
+
 declare namespace Cypress {
   interface Chainable {
     /**
@@ -12,7 +22,7 @@ declare namespace Cypress {
      * @example 
      *    cy.login('000000000000', '000000')
      */
-    login(document: string, password: string): void
+    login({document, password}: LogIn): void
 
     /**
      * Realiza o login na aplicação com um usuário padrão
@@ -35,5 +45,21 @@ declare namespace Cypress {
      *    cy.deleteRegisterDatabase('00000000000')
      */
     deleteRegisterDatabase(document: string): void
+
+    /**
+     * Obtem as informações do teclado número do login 
+     * @example 
+     *    cy.getKeyboardId()
+     */
+    getKeyboardId(): KeyboardResponse
+
+    /**
+     * Realiza o login na aplicação através da camada da API
+     * @param {string} document Documento utilizado para acessar o portal
+     * @param {string} password Senha utilizada para acessar o portal
+     * @example 
+     *    cy.loginApi('000000000000', '000000')
+     */
+    loginApi({document, password}: LogIn): void
   }
 }
