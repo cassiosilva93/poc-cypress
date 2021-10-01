@@ -1,23 +1,15 @@
 /// <reference types="cypress" />
 
-import locators from '../support/locators';
-import { generateFakeEmail } from '../utils/helpers';
+import locators from '../../support/locators';
+import { generateFakeEmail } from '../../utils/helpers';
 import { cnpj, cpf } from 'cpf-cnpj-validator';
 
-describe('Send Invite Page', () => {
-  let email;
-  let emailRepresentative;
-  let documentRepresentative;
+let email;
+let emailRepresentative;
+let documentRepresentative;
+let cpfDocument;
 
-  const optionsPerson = [
-    'Fundo de investimento',
-    'Gestor',
-    'Emissor',
-    'Escriturador',
-    'Liquidante',
-    'PJ',
-  ];
-
+describe('Send Invite Person', () => {
   before(() => {
     cy.loginWithStandardCredentials();
     cy.get(locators.productChoicePage.welcomeTitleMessage);
@@ -26,11 +18,14 @@ describe('Send Invite Page', () => {
     email = generateFakeEmail();
     emailRepresentative = generateFakeEmail();
     documentRepresentative = cnpj.generate();
+    cpfDocument = cpf.generate();
+  });
+
+  afterEach(() => {
+    cy.deleteRegisterDatabase(cpfDocument);
   });
 
   it('should be able to send invite to individual person', () => {
-    const cpfDocument = cpf.generate();
-
     cy.get(locators.sendInvitePage.documentInput).type(cpfDocument);
     cy.get(locators.sendInvitePage.emailInput).type(email);
     cy.get(locators.sendInvitePage.sendInviteButton).click();
@@ -42,8 +37,6 @@ describe('Send Invite Page', () => {
   });
 
   it('should be able to send invite to which will be filled in by a representative', () => {
-    const cpfDocument = cpf.generate();
-
     cy.get(locators.sendInvitePage.documentInput).type(cpfDocument);
     cy.get(locators.sendInvitePage.filledByRepresentative).click();
     cy.get(locators.sendInvitePage.emailInput).type(email);
@@ -61,26 +54,7 @@ describe('Send Invite Page', () => {
     );
   });
 
-  optionsPerson.forEach((optionType) => {
-    const cnpjDocument = cnpj.generate();
-
-    it(`should be able to send invite to ${optionType}`, () => {
-      cy.get(locators.sendInvitePage.documentInput).type(cnpjDocument);
-      cy.get(locators.sendInvitePage.emailInput).type(email);
-      cy.get(locators.sendInvitePage.personTypeInput).children().should('have.length', 6);
-      cy.get('select').select(optionType);
-      cy.get(locators.sendInvitePage.sendInviteButton).click();
-      cy.get(locators.sendInvitePage.inviteSuccessMessage).should(
-        'have.text',
-        'Seu convite foi enviado com sucesso!'
-      );
-      cy.xpath(locators.sendInvitePage.closeModalButton()).click();
-    });
-  });
-
   it('should not be able to send invite without e-mail', () => {
-    const cpfDocument = cpf.generate();
-    
     cy.get(locators.sendInvitePage.documentInput).type(cpfDocument);
     cy.get(locators.sendInvitePage.sendInviteButton).click();
     cy.get(locators.sendInvitePage.inviteSuccessMessage).should(
@@ -99,5 +73,4 @@ describe('Send Invite Page', () => {
     cy.get(locators.sendInvitePage.inviteSuccessMessage).should('have.text', 'Documento inválido!');
     cy.xpath(locators.sendInvitePage.closeModalButton()).click();
   });
-  
 });

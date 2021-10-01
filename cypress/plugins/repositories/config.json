@@ -1,0 +1,6 @@
+{
+  "mongoDb": {
+    "connectionString": "mongodb://vadmin:C%40bul0s0Vortx@cluatvortxsp01-shard-00-00-lozec.mongodb.net:27017,cluatvortxsp01-shard-00-01-lozec.mongodb.net:27017,cluatvortxsp01-shard-00-02-lozec.mongodb.net:27017/admin?ssl=true&replicaSet=CLUATVORTXSP01-shard-0&connectTimeoutMS=10000&authSource=admin&authMechanism=SCRAM-SHA-1",
+    "database": "VxCadastro"
+  }
+}
