@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import locators from '../support/locators';
-import { generateFakeEmail } from '../utils/helpers';
+import locators from '../../support/locators';
+import { generateFakeEmail } from '../../utils/helpers';
 import { cnpj, cpf } from 'cpf-cnpj-validator';
 
 let email;
@@ -34,7 +34,6 @@ describe('Send Invite Person', () => {
       'Seu convite foi enviado com sucesso!'
     );
     cy.xpath(locators.sendInvitePage.closeModalButton()).click();
-
   });
 
   it('should be able to send invite to which will be filled in by a representative', () => {

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import locators from '../support/locators';
-import { generateFakeEmail } from '../utils/helpers';
+import locators from '../../support/locators';
+import { generateFakeEmail } from '../../utils/helpers';
 import { cnpj } from 'cpf-cnpj-validator';
 
 let email;
@@ -16,8 +16,12 @@ const optionsPerson = [
   'PJ',
 ];
 
+
 describe('Send Invite Company', () => {
   before(() => {
+    console.log(Cypress.config('baseUrlInterface'));
+    console.log(Cypress.config('baseUrlVxCadastro'));
+    console.log(Cypress.config('baseUrlApi'));
     cy.loginWithStandardCredentials();
     cy.get(locators.productChoicePage.welcomeTitleMessage);
     cy.selectProduct();
