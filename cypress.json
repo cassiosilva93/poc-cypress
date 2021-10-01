@@ -1,5 +1,7 @@
 {
-  "baseUrl": "https://portaluat.vortx.com.br/",
+  "baseUrlInterface": "https://portaluat.vortx.com.br/",
+  "baseUrlApi": "https://apis-stg.vortx.com.br/vxlogin/api",
+  "baseUrlVxCadastro": "https://vxcadastrouat.vortx.com.br/",
   "viewportWidth": 1920,
   "viewportHeight": 1080,
   "defaultCommandTimeout": 15000
