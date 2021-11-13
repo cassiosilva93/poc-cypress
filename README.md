@@ -2,7 +2,7 @@
 
 ##  🎁Dependências
 
-- cypress-xpath: Por padrão, o Cypress não trabalhar com seletores Xpath, com isso, precisamos utilizar a biblioteca [cypress-xpath](https://www.npmjs.com/package/cypress-xpath)
+- cypress-xpath: Por padrão, o Cypress não trabalha com seletores Xpath, com isso, precisamos utilizar a biblioteca [cypress-xpath](https://www.npmjs.com/package/cypress-xpath)
 
 - allure-plugin: Para visualização de relatórios, mais informações podem ser encontradas no link [allure report](https://docs.qameta.io/allure/)
 
